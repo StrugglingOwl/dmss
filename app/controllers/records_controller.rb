@@ -22,6 +22,12 @@ class RecordsController < ApplicationController
       redirect_to records_path
   end
 
+  def update
+    @record = Record.find(params[:id])
+    @record.update(record_params)
+    redirect_to records_path, notice: "Update Success"
+  end
+
   private
 
   def record_params
