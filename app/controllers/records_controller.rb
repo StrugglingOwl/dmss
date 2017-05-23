@@ -1,4 +1,6 @@
 class RecordsController < ApplicationController
+  before_action :authenticate_user! , only: [:new]
+
   def index
     @records = Record.all
   end
