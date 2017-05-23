@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :authenticate_user! , only: [:new]
+  before_action :authenticate_user! , only: [:new, :create]
 
   def index
     @records = Record.all
@@ -19,6 +19,7 @@ class RecordsController < ApplicationController
 
   def create
     @record = Record.new(record_params)
+    @record.user = current_user
 
     if @record.save
       redirect_to records_path
