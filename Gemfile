@@ -43,6 +43,8 @@ gem 'simple_form'
 gem 'devise'
 # 加入分页功能
 gem 'will_paginate'
+# 安装 FontAwesome
+gem 'font-awesome-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
