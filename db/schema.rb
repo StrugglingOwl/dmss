@@ -10,14 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523132048) do
+ActiveRecord::Schema.define(version: 20170523133215) do
 
   create_table "records", force: :cascade do |t|
     t.string   "device_name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "user_id"
+    t.integer  "case_number"
+    t.date     "date"
+    t.string   "hospital"
+    t.string   "hospital_contact"
+    t.integer  "telephone"
+    t.string   "room_id"
+    t.string   "device_model"
+    t.string   "serial_number"
+    t.text     "maintenance"
+    t.string   "result"
+    t.text     "remarks"
+    t.string   "service_engineer"
   end
 
   create_table "users", force: :cascade do |t|
