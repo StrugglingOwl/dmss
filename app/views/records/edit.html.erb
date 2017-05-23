@@ -4,10 +4,18 @@
     <hr>
     <%= form_for @record do |f| %>
 
-    标题
+    <% if @record.errors.any? %>
+    <ul>
+      <% @record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <% end %>
+
+    设备名称
     <%= f.text_field :device_name %>
     <br>
-    叙述
+    描述
     <br>
     <%= f.text_area :description %>
     <br>
