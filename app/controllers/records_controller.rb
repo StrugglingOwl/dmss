@@ -3,7 +3,7 @@ class RecordsController < ApplicationController
   before_action :find_record_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
-    @records = Record.all.order("created_at DESC")
+    @records = Record.all.recent
   end
 
   def show
