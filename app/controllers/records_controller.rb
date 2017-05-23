@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
+  before_action :find_record_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
     @records = Record.all
@@ -10,11 +11,6 @@ class RecordsController < ApplicationController
   end
 
   def edit
-    @record = Record.find(params[:id])
-
-    if current_user != @record.user
-      redirect_to root_path, alert: "You have no permission."
-    end
   end
 
   def new
@@ -33,12 +29,6 @@ class RecordsController < ApplicationController
   end
 
   def update
-    @record = Record.find(params[:id])
-
-    if current_user != @record.user
-      redirect_to root_path, alert: "You have no permission."
-    end
-
     if @record.update(record_params)
       redirect_to records_path, notice: "Update Success"
     else
@@ -47,17 +37,19 @@ class RecordsController < ApplicationController
   end
 
   def destroy
-    @record = Record.find(params[:id])
-
-    if current_user != @record.user
-      redirect_to root_path, alert: "You have no permission."
-    end
-
     @record.destroy
     redirect_to records_path, alert: "Record deleted"
   end
 
   private
+
+  def find_record_and_check_permission
+    @record = Record.find(params[:id])
+
+    if current_user != @record.user
+      redirect_to root_path, alert: "You have no permission."
+    end
+  end
 
   def record_params
     params.require(:record).permit(:device_name, :description)
