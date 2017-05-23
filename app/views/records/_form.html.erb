@@ -1,18 +1,16 @@
 <%= form_for @record do |f| %>
-<% if @record.errors.any? %>
-<ul>
-  <% @record.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
-标题
-<%= f.text_field :device_name %>
-<br>
-叙述
-<br>
-<%= f.text_area :description %>
-<br>
 
-<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<div class="form-record">
+    <div class="form-record string optional">
+        <%= f.label "device_name", :class => "string optional control-label" %>
+        <%= f.text_field :device_name, :class => "string optional form-control" %>
+    </div>
+
+    <div class="form-record string optional">
+        <%= f.label "description", :class => "string optional control-label" %>
+        <%= f.text_area :description, :class => "string optional form-control" %>
+    </div>
+
+</div>
+<%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
 <% end %>
