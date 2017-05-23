@@ -7,6 +7,10 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
   end
 
+  def edit
+    @record = Record.find(params[:id])
+  end
+
   def new
     @record = Record.new
   end
