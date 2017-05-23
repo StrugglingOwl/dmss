@@ -28,6 +28,13 @@ class RecordsController < ApplicationController
     redirect_to records_path, notice: "Update Success"
   end
 
+  def destroy
+    @record = Record.find(params[:id])
+    @record.destroy
+    flash[:alert] = "Record deleted"
+    redirect_to records_path
+  end
+
   private
 
   def record_params
