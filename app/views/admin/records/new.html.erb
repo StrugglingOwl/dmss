@@ -1,0 +1,9 @@
+<h1> Add a record </h1>
+
+<%= simple_form_for [:admin,@record] do |f| %>
+
+<%= f.input :device_name %>
+<%= f.input :description %>
+
+  <%= f.submit "Submit" %>
+<% end %>

@@ -1,0 +1,22 @@
+<div class="pull-right">
+  <%= link_to("Add a record", new_admin_record_path, :class => "btn btn-default" ) %>
+</div>
+
+<br><br>
+
+<table class="table table-bordered">
+  <% @records.each do |record| %>
+  <tr>
+    <td>
+      <%= link_to(record.device_name, admin_record_path(record)) %>
+    </td>
+    <td>
+      <%= link_to("Edit", edit_admin_record_path(record)) %>
+      <%= link_to("Destroy", admin_record_path(record), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+    </td>
+    <td>
+      <%= record.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>
