@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :authenticate_user! , only: [:new, :create]
+  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @records = Record.all
@@ -11,6 +11,10 @@ class RecordsController < ApplicationController
 
   def edit
     @record = Record.find(params[:id])
+
+    if current_user != @record.user
+      redirect_to root_path, alert: "You have no permission."
+    end
   end
 
   def new
@@ -30,6 +34,11 @@ class RecordsController < ApplicationController
 
   def update
     @record = Record.find(params[:id])
+
+    if current_user != @record.user
+      redirect_to root_path, alert: "You have no permission."
+    end
+
     if @record.update(record_params)
       redirect_to records_path, notice: "Update Success"
     else
@@ -39,9 +48,13 @@ class RecordsController < ApplicationController
 
   def destroy
     @record = Record.find(params[:id])
+
+    if current_user != @record.user
+      redirect_to root_path, alert: "You have no permission."
+    end
+
     @record.destroy
-    flash[:alert] = "Record deleted"
-    redirect_to records_path
+    redirect_to records_path, alert: "Record deleted"
   end
 
   private
