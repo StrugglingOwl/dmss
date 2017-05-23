@@ -3,7 +3,7 @@ class RecordsController < ApplicationController
   before_action :find_record_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
-    @records = Record.all.recent
+    @records = Record.all.recent.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
