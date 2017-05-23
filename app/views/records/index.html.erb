@@ -16,7 +16,7 @@
         <tr>
           <td>#</td>
           <td><%= link_to(record.device_name, record_path(record)) %></td>
-          <td><%= record.description %></td>
+          <td><%= simple_format(record.description) %></td>
           <td><%= record.user.email %></td>
           <td>
               <% if current_user && current_user == record.user %>
@@ -33,5 +33,5 @@
   <div class="text-center">
   <%= will_paginate @records %>
   </div>
-  
+
 </div>
