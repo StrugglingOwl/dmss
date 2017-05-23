@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+/* 将 Bootstrap 的 CSS 套件装进项目里面 */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
