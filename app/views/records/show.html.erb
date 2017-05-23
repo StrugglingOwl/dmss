@@ -1,6 +1,8 @@
 <div class="col-md-12">
   <div class="record">
-    <%= link_to("Edit", edit_record_path(@record), class: "btn btn-primary pull-right")%>
+    <% if current_user && current_user == @record.user %>
+      <%= link_to("Edit", edit_record_path(@record), class: "btn btn-primary pull-right")%>
+    <% end %>
   </div>
   <h2><%= @record.device_name %></h2>
   <p><%= @record.description %></p>
