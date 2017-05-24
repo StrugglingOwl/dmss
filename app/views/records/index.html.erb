@@ -2,13 +2,40 @@
   <div class="record">
     <%= link_to("New record", new_record_path, class: "btn btn-primary pull-right") %>
   </div>
+  <div class="dropdown clearfix pull-right">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      排序
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+      <li>
+        <%= link_to("默认排序", records_path(:order => "recent")) %>
+
+      </li>
+        <li>
+          <%= link_to("按照 房间号 排序", records_path(:order => "by_room_id")) %>
+        </li>
+        <li>
+            <%= link_to("按照 型号 排序", records_path(:order => "by_device_model")) %>
+
+        </li>
+        <li>
+          <%= link_to("按照 序列号 排序", records_path(:order => "by_serial_number")) %>
+
+        </li>
+    </ul>
+</div>
   <table class="table table-hover">
     <thead>
       <tr>
         <td>#</td>
-        <td>Device Name</td>
-        <td>Description</td>
-        <td>Creator</td>
+        <td>房间号</td>
+        <td>设备名称</td>
+        <td>型号</td>
+        <td>序列号</td>
+        <td>故障描述</td>
+        <td>结果</td>
+        <td>记录添加者</td>
       </tr>
     </thead>
     <tbody>

@@ -3,7 +3,17 @@ class RecordsController < ApplicationController
   before_action :find_record_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
-    @records = Record.all.recent.paginate(:page => params[:page], :per_page => 10)
+
+    @records = case params[:order]
+      when 'by_room_id'
+        Record.order('room_id DESC').paginate(:page => params[:page], :per_page => 10)
+      when 'by_device_model'
+        Record.order('device_model DESC').paginate(:page => params[:page], :per_page => 10)
+      when 'by_serial_number'
+        Record.order('serial_number DESC').paginate(:page => params[:page], :per_page => 10)
+      else
+        Record.recent.paginate(:page => params[:page], :per_page => 10)
+      end
   end
 
   def show
