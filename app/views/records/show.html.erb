@@ -1,10 +1,36 @@
 <div class="col-md-12">
   <div class="record">
-    <% if current_user && current_user == @record.user %>
-      <%= link_to("Edit", edit_record_path(@record), class: "btn btn-primary pull-right")%>
-    <% end %>
+    <%= link_to("Generate Reports", record_path, class: "btn btn-primary pull-right") %>
   </div>
-  <h2><%= @record.device_name %></h2>
-  <p><%= render_record_description(@record) %></p>
-  <p><%= @record.created_at%></p>
+  <table class="table table-hover">
+    <tr><td> </td><td> </td></tr>
+    <tr><td>流水号</td><td><%= @record.case_number %></td></tr>
+    <tr><td>日期</td><td><%= @record.date %></td></tr>
+    <tr><td>医院</td><td><%= @record.hospital %></td></tr>
+    <tr><td>联系人</td><td><%= @record.hospital_contact %></td></tr>
+    <tr><td>电话</td><td><%= @record.telephone %></td></tr>
+    <tr><td>房间号</td><td><%= @record.room_id %></td></tr>
+    <tr><td>设备名称</td><td><%= @record.device_name %></td></tr>
+    <tr><td>型号</td><td><%= @record.device_model %></td></tr>
+    <tr><td>序列号</td><td><%= @record.serial_number %></td></tr>
+    <tr><td>故障描述</td><td><%= render_record_description(@record) %></td></tr>
+    <tr><td>维修过程</td><td><%= @record.maintenance %></td></tr>
+    <tr><td>结果</td><td><%= @record.result %></td></tr>
+    <tr><td>备注</td><td><%= @record.remarks %></td></tr>
+    <tr><td>服务工程师</td><td><%= @record.service_engineer %></td></tr>
+    <tr><td>记录添加人</td><td><%= @record.user.email %></td></tr>
+    <tr>
+      <td>
+          <%= link_to("Back", records_path, class: "btn btn-primary pull-left")%>
+      </td>
+      <td>
+          <% if current_user && current_user == @record.user %>
+          <%= link_to("Edit", edit_record_path(@record), class: "btn btn-info pull-left")%>
+          <%= link_to("Delete", record_path(@record),    class: "btn btn-danger pull-right",
+                      method: :delete, data: { confirm: "Are you sure?" } )%>
+          <% end %>
+
+      </td>
+    </tr>
+  </table>
 </div>

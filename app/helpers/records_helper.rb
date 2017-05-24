@@ -1,4 +1,8 @@
 module RecordsHelper
+  def render_record_device_name(record)
+    simple_format(record.device_name)
+  end
+
   def render_record_description(record)
     simple_format(record.description)
   end

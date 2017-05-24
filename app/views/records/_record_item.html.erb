@@ -1,17 +1,11 @@
   <tr>
-    <td>#</td>
+    <td><%= link_to(record.case_number, record_path(record)) %></td>
     <td><%= render_record_room_id(record) %></td>
-    <td><%= link_to(record.device_name, record_path(record)) %></td>
+    <td><%= render_record_device_name(record) %></td>
     <td><%= render_record_device_model(record) %></td>
     <td><%= render_record_serial_number(record) %></td>
     <td><%= render_record_description(record) %></td>
     <td><%= render_record_result(record) %></td>
     <td><%= record.user.email %></td>
-    <td>
-        <% if current_user && current_user == record.user %>
-        <%= link_to("Edit", edit_record_path(record), class: "btn btn-sm btn-default")%>
-        <%= link_to("Delete", record_path(record),    class: "btn btn-sm btn-default",
-                    method: :delete, data: { confirm: "Are you sure?" } )%>
-        <% end %>
-    </td>
+
   </tr>
