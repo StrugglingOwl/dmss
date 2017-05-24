@@ -4,18 +4,19 @@
 
 <br><br>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-striped custab">
   <% @records.each do |record| %>
   <tr>
     <td>
       <%= link_to(record.device_name, admin_record_path(record)) %>
     </td>
     <td>
-      <%= link_to("Edit", edit_admin_record_path(record)) %>
-      <%= link_to("Destroy", admin_record_path(record), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+      <%= link_to("Edit", edit_admin_record_path(record), :class => "btn btn-xs btn-info") %>
+      <%= link_to("Destroy", admin_record_path(record), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
+
     </td>
     <td>
-      <%= record.created_at %>
+      <%= record.created_at%>
     </td>
   </tr>
   <% end %>

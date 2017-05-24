@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user! , only: [:index, :show, :new, :create, :edit, :update, :destroy]
   before_action :find_record_and_check_permission, only: [:edit, :update, :destroy]
 
   def index

@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
 
   resources :records
-  root 'records#index'
+  root 'welcome#index'
 end
