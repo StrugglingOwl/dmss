@@ -20,7 +20,7 @@
                         <% if current_user.admin? %>
                           <li> <%= link_to("Admin Panel", admin_records_path) %> </li>
                         <% end %>
-                        <li> <%= link_to("Sign out", destroy_user_session_path, method: :delete) %> </li>
+                        <li> <%= link_to(content_tag(:i, ' Sign out', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
                     </ul>
                   </li>
                 <% end %>
