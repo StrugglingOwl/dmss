@@ -45,6 +45,8 @@ gem 'devise'
 gem 'will_paginate'
 # 安装 FontAwesome
 gem 'font-awesome-rails'
+# 安装jquery-turbolinks实现提示消息自动消失
+gem 'jquery-turbolinks'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

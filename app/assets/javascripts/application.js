@@ -12,8 +12,30 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
+//= require bootstrap
 //= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown
 //= require bootstrap/modal
 //= require_tree .
+
+// 实现flash提示信息自动消失
+$(document).on('turbolinks:load', function() {
+  // 菜单自动打开
+  $('.dropdown').hover(function() {
+    $(this).addClass('open');
+  },
+  function() {
+    $(this).removeClass('open');
+  });
+  // 收起通知
+  slideUpAlert();
+});
+// 收起通知信息
+function slideUpAlert() {
+  // 消息停留2000毫秒（2秒），消失动画时间250毫秒
+  $(".alert").delay(2000).slideUp(250, function() {
+    $(this).remove();
+  });
+}
