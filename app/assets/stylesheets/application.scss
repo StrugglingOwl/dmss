@@ -287,3 +287,15 @@
 .login-help{
   font-size: 12px;
 }
+/*让footer部分 一直在底部*/
+html,body {
+  height: 100%;
+  margin: 0;
+}
+.body-content {
+  min-height: 100%;
+}
+.footer {
+  height: 60px;
+  margin-top: -60px;
+}
