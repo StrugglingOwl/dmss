@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # 如果是生产环境，默认开启用户注册，否则关闭
+  # 如果是正式环境（production为正式环境，development为开发模式，test为测试模式），关闭用户注册，否则开启
   if Rails.env.production?
     devise_for :users, :controllers => { :registrations => "registrations" }
   else

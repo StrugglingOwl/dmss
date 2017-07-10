@@ -6,6 +6,7 @@ class RecordsController < ApplicationController
 
     @records = case params[:order]
       when 'by_room_id'
+        # 下面的 room_id 可以改成表格内的其他字段, 如 result，就是按结果排序。
         Record.order('room_id DESC').paginate(:page => params[:page], :per_page => 10)
       when 'by_device_model'
         Record.order('device_model DESC').paginate(:page => params[:page], :per_page => 10)
