@@ -47,6 +47,10 @@ gem 'will_paginate'
 gem 'font-awesome-rails'
 # 安装jquery-turbolinks实现提示消息自动消失
 gem 'jquery-turbolinks'
+# 搜索功能
+gem 'ransack'
+gem 'will_paginate-bootstrap'
+gem 'seo_helper'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

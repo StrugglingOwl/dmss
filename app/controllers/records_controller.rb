@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user! , only: [:index, :show, :new, :create, :edit, :update, :destroy]
   before_action :find_record_and_check_permission, only: [:edit, :update, :destroy]
+  before_action :validate_search_key, only: [:search]
 
   def index
 
@@ -51,6 +52,26 @@ class RecordsController < ApplicationController
     @record.destroy
     redirect_to records_path, alert: "Record deleted"
   end
+
+  # 搜索
+  def search
+    if @query_string.present?
+      search_result = Record.ransack(@search_criteria).result(:distinct => true)
+      @records = search_result.paginate(:page => params[:page], :per_page => 5)
+    end
+  end
+
+  protected
+
+  def validate_search_key
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+    @search_criteria = search_criteria(@query_string)
+  end
+
+  def search_criteria(query_string)
+    { :title_cont => query_string}
+  end
+  ###
 
   private
 

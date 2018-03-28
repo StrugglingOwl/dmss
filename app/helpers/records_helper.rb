@@ -23,4 +23,9 @@ module RecordsHelper
     simple_format(record.result)
   end
 
+  def render_highlight_content(record,query_string)
+    excerpt_cont = excerpt(record.description,query_string, radius: 500)
+    highlight(excerpt_cont, query_string)
+  end
+
 end
