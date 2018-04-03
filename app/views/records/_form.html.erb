@@ -15,7 +15,16 @@
     <%= f.input :remarks, input_html: { class: "form-control"} %>
     <%= f.input :service_engineer, input_html: { class: "form-control"} %>
 
-    <%= f.file_field :picture %> <br>
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %> <br>
   </div>
   <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
 <% end %>
+
+<script type="text/JavaScript">
+  $('#record_picture').bind('change',function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
