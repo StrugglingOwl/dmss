@@ -4,7 +4,9 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+  # 调整图片的尺寸，不超过1920
+  process resize_to_limit: [1920,1920]
 
   # Choose what kind of storage to use for this uploader:
   storage :file
