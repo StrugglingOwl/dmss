@@ -19,6 +19,7 @@
     <tr><td>备注</td><td><%= @record.remarks %></td></tr>
     <tr><td>服务工程师</td><td><%= @record.service_engineer %></td></tr>
     <tr><td>记录添加人</td><td><%= @record.user.email %></td></tr>
+    <tr><td>图片</td><td> <%= image_tag @record.picture.url if @record.picture? %></td></tr>
     <tr>
       <td>
           <%= link_to("Back", records_path, class: "btn btn-primary pull-left")%>

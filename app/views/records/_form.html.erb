@@ -1,4 +1,4 @@
-<%= simple_form_for @record do |f| %>
+<%= simple_form_for(@record, html: { multipart: true }) do |f| %>
   <div class="form-record">
     <%= f.input :case_number, input_html: { class: "form-control"} %>
     <%= f.input :date, input_html: { class: "form-control"} %>
@@ -14,6 +14,8 @@
     <%= f.input :result, input_html: { class: "form-control"} %>
     <%= f.input :remarks, input_html: { class: "form-control"} %>
     <%= f.input :service_engineer, input_html: { class: "form-control"} %>
+
+    <%= f.file_field :picture %> <br>
   </div>
   <%= f.submit "Submit", class: "btn btn-primary", data: { disable_with: "Submiting..." } %>
 <% end %>

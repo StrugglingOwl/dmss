@@ -8,5 +8,8 @@ class Record < ApplicationRecord
   validates :result, presence: true
   validates :service_engineer, presence: true
 
+  # 告诉carrierwave把图像和模型关联起来
+  mount_uploader :picture, PictureUploader
+
   scope :recent, -> { order("created_at DESC")}
 end
