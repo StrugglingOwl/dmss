@@ -24,6 +24,8 @@
           <%= link_to("Back", records_path, class: "btn btn-primary pull-left")%>
       </td>
       <td>
+        <%= link_to("Write Workflow", new_record_post_path(@record), class: "btn btn-default pull-right")%>
+
           <% if current_user && current_user == @record.user %>
           <%= link_to("Edit", edit_record_path(@record), class: "btn btn-info pull-left")%>
           <%= link_to("Delete", record_path(@record),    class: "btn btn-danger pull-right",
