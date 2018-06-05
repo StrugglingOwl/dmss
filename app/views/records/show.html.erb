@@ -35,7 +35,29 @@
     </tr>
   </table>
 
-  <%= link_to("Write a Post", new_record_post_path(@record), class: "btn btn-default pull-left")%>
 
+</div>
+
+<div class="col-md-12">
+  <%= link_to("增加工作流", new_record_post_path(@record), class: "btn btn-default pull-left")%>
+
+  <table class="table">
+    <thead>
+     <tr>
+        <th>工作流内容</th>
+        <th>发表者</th>
+        <th>发表时间</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.content %></td>
+          <td><%= post.user.email %></td>
+          <td><%= post.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>
