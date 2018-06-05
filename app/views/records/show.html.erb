@@ -47,6 +47,7 @@
         <th>工作流内容</th>
         <th>发表者</th>
         <th>发表时间</th>
+        <th>操作</th>
       </tr>
     </thead>
     <tbody>
@@ -55,6 +56,10 @@
           <td><%= post.content %></td>
           <td><%= post.user.email %></td>
           <td><%= post.created_at %></td>
+          <td>
+            <%= link_to("Destroy", record_post_path(post), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
+
+          </td>
         </tr>
       <% end %>
     </tbody>
