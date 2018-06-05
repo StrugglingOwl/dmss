@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   end
 
   resources :records do
-    resources :resumes
+    #resources :resumes
+    resources :posts
     collection do
       get :search
     end
