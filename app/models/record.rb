@@ -1,5 +1,6 @@
 class Record < ApplicationRecord
   belongs_to :user
+  has_many :posts
   validates :device_name, presence: true
   validates :case_number, presence: true
   validates :date, presence: true
