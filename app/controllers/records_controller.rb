@@ -20,7 +20,6 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
-    @posts = @record.posts.recent
   end
 
   def edit
@@ -85,6 +84,6 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(:device_name, :description, :case_number, :date, :hospital, :hospital_contact, :telephone, :room_id, :device_model, :serial_number, :maintenance, :result, :remarks, :service_engineer)
+    params.require(:record).permit(:device_name, :description, :case_number, :date, :hospital, :hospital_contact, :telephone, :room_id, :device_model, :serial_number, :maintenance, :result, :remarks, :service_engineer, :picture)
   end
 end

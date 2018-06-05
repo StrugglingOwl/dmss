@@ -19,13 +19,12 @@
     <tr><td>备注</td><td><%= @record.remarks %></td></tr>
     <tr><td>服务工程师</td><td><%= @record.service_engineer %></td></tr>
     <tr><td>记录添加人</td><td><%= @record.user.email %></td></tr>
+    <tr><td>图片</td><td> <%= image_tag @record.picture.url if @record.picture? %></td></tr>
     <tr>
       <td>
           <%= link_to("Back", records_path, class: "btn btn-primary pull-left")%>
       </td>
       <td>
-        <%= link_to("Write Workflow", new_record_post_path(@record), class: "btn btn-default pull-right")%>
-
           <% if current_user && current_user == @record.user %>
           <%= link_to("Edit", edit_record_path(@record), class: "btn btn-info pull-left")%>
           <%= link_to("Delete", record_path(@record),    class: "btn btn-danger pull-right",
@@ -35,24 +34,4 @@
       </td>
     </tr>
   </table>
-
-  <table class="table">
-    <thead>
-     <tr>
-        <th>工作流内容</th>
-        <th>发表者</th>
-        <th>发表时间</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.content %></td>
-          <td><%= post.user.email %></td>
-          <td><%= post.created_at %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
 </div>
