@@ -57,7 +57,7 @@
           <td><%= post.user.email %></td>
           <td><%= post.created_at %></td>
           <td>
-            <%= link_to("Destroy", record_post_path(post), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
+            <%= link_to "Destroy", record_post_path(post), method: :delete, :class => "btn btn-xs btn-danger", data: { confirm: "You sure?" } %>
 
           </td>
         </tr>
