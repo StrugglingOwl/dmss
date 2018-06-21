@@ -39,3 +39,5 @@ function slideUpAlert() {
     $(this).remove();
   });
 }
+
+//= require bootstrap/collapse
