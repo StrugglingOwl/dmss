@@ -19,6 +19,9 @@
 //= require bootstrap/dropdown
 //= require bootstrap/modal
 //= require_tree .
+//= require highcharts
+//= require chartkick
+
 
 // 实现flash提示信息自动消失
 $(document).on('turbolinks:load', function() {

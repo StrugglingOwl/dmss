@@ -5,6 +5,8 @@ class RecordsController < ApplicationController
 
   def index
 
+    @records = Record.all
+
     @records = case params[:order]
                   when 'by_room_id'
                     # 下面的 room_id 可以改成表格内的其他字段, 如 result，就是按结果排序。

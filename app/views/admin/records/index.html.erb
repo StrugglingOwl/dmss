@@ -2,7 +2,10 @@
   <b>目前共有<%= @records.count %>条记录</b>
   <%= link_to("Add a record", new_admin_record_path, :class => "btn btn-default" ) %>
 </div>
-
+<div >
+  <h1>Statistics</h1>
+  <%= bar_chart @records.group(:device_name).count %>
+</div>
 <br><br>
 
 <table class="table table-bordered table-striped custab">
