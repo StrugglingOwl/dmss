@@ -46,6 +46,10 @@ class Admin::RecordsController < ApplicationController
     redirect_to admin_records_path
   end
 
+  # 统计功能
+  def statistics
+    @records = Record.all
+  end
 
   private
 

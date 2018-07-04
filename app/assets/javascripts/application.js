@@ -19,6 +19,8 @@
 //= require bootstrap/dropdown
 //= require bootstrap/modal
 //= require_tree .
+
+// 图表gem：统计功能
 //= require highcharts
 //= require chartkick
 

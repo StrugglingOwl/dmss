@@ -1,0 +1,13 @@
+<!-- 统计功能页面 -->
+<div >
+
+  <h1>Statistics  目前共有<%= @records.count %>条记录</h1>
+  <br>
+  <h4>按“设备名称”的统计</h4>
+  <%= bar_chart @records.group(:device_name).count %>
+
+  <br>
+  <h4>按“解决结果”的统计</h4>
+  <%= bar_chart @records.group(:result).count %>
+
+</div>

@@ -59,7 +59,7 @@ gem 'mini_magick', '4.5.1'
 # 在生产环境中上传使用
 gem 'fog', '1.38.0'
 
-# 图表
+# 图表(统计功能)
 gem 'chartkick'
 
 group :development, :test do

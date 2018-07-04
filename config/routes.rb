@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   end
   root 'welcome#index'
 
+  root 'admin/records#index'
+  get 'admin/statistics', to: 'admin/records#statistics'
+
 end
